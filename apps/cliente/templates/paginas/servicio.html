@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">nombre</th>
+        <th scope="col">dericcion</th>
+        <th scope="col">telefono</th>
+        <th scope="col">correo</th>
+        <th scope="col">modelo</th>
+      </tr>
+    </thead>
+
+    {% for i in servicio %}
+    
+    <tbody>
+        <tr class="table-active">
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.ClienteId}}</td>
+          <td>{{i.fecha}}</td>
+          <td>{{i.descripcion}}</td>
+          <td>{{i.color}}</td>
+          <td>{{i.ClienteId}}</td>
+          <td>
+                <a href="{% url 'update' i.id %}" class="btn btn-warning">EDITAR</a>
+                <a href="{% url 'delete' i.id %}" class="btn btn-danger">ELIMINAR</a>  
+          </td>
+        </tr>
+    
+  
+      </tbody>
+
+
+    {% endfor %}
+
+
+  </table>
+  <a href="{% url 'create' %}" class="btn btn-info">AÑADIR</a>
+      
+{% endblock content %}
